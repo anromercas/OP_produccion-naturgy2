@@ -68,10 +68,10 @@ app.use('/observacionesPreventivas', observacionesRoutes);
 app.use('/', appRoutes);
 
 // Escuchar peticiones
-https.createServer({
+/* https.createServer({
     key: fs.readFileSync('/etc/letsencrypt/live/pruebas-ssl.tk/privkey.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/pruebas-ssl.tk/fullchain.pem')
-},
-app).listen(3000, () => {
+}, */
+app.listen(3000, () => {
     console.log('Express server puerto 3000: \x1b[32m%s\x1b[0m', 'online');
 });
