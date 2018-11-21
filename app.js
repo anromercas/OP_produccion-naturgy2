@@ -1,8 +1,10 @@
+
 // Requires
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var path = require('path');
+var https = require('https');
 
 
 // Inicializar variables
@@ -65,8 +67,11 @@ app.use('/observacionesPreventivas', observacionesRoutes);
 
 app.use('/', appRoutes);
 
-
 // Escuchar peticiones
-app.listen(3000, () => {
+https.createServer({
+    key: fs.readFileSync('/etc/letsencrypt/live/pruebas-ssl.tk/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/pruebas-ssl.tk/fullchain.pem')
+},
+app).listen(3000, () => {
     console.log('Express server puerto 3000: \x1b[32m%s\x1b[0m', 'online');
 });
