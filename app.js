@@ -5,6 +5,10 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var path = require('path');
 var https = require('https');
+const options = { 
+    key: fs.readFileSync('/etc/letsencrypt/live/pruebas-ssl.tk/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/pruebas-ssl.tk/fullchain.pem')
+}; 
 
 
 // Inicializar variables
@@ -68,10 +72,8 @@ app.use('/observacionesPreventivas', observacionesRoutes);
 app.use('/', appRoutes);
 
 // Escuchar peticiones
-https.createServer({
-    key: fs.readFileSync('/etc/letsencrypt/live/pruebas-ssl.tk/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/pruebas-ssl.tk/fullchain.pem')
-},app)
-.listen(3000, () => {
+//https.createServer(options, app).listen(443, console.log("Secure server running on port 8443"));
+
+app.listen(3000, () => {
     console.log('Express server puerto 3000: \x1b[32m%s\x1b[0m', 'online');
 });
