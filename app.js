@@ -4,11 +4,12 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var path = require('path');
+/* var fs = require('fs');
 var https = require('https');
 const options = { 
     key: fs.readFileSync('/etc/letsencrypt/live/pruebas-ssl.tk/privkey.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/pruebas-ssl.tk/fullchain.pem')
-}; 
+};  */
 
 
 // Inicializar variables
