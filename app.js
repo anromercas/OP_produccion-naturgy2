@@ -73,7 +73,7 @@ app.use('/observacionesPreventivas', observacionesRoutes);
 app.use('/', appRoutes);
 
 // Escuchar peticiones
-https.createServer(options, app).listen(443, console.log("Secure server running on port 443"));
+https.createServer(options, app).listen(8443, console.log("Secure server running on port 8443"));
 
 app.listen(3000, () => {
     console.log('Express server puerto 3000: \x1b[32m%s\x1b[0m', 'online');
